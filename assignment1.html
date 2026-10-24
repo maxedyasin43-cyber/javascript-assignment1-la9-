@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Assignment 1</title>
+</head>
+
+<body>
+
+    <h1>Number Guessing Game</h1>
+
+    <p>
+        Gmail:
+        <a href="mailto:maxedyasin43@gmail.com">
+            maxedyasin43@gmail.com
+        </a>
+    </p>
+
+    <script>
+        const targetNumber = 15;
+        const maxAttempts = 5;
+
+        let attempts = 0;
+        let found = false;
+
+        while (attempts < maxAttempts) {
+
+            const input = prompt("Guess a number:");
+
+            if (input === null) {
+                break;
+            }
+
+            if (input.trim() === "" || !Number.isFinite(Number(input))) {
+                alert("Please enter a valid number.");
+                continue;
+            }
+
+            const guess = Number(input);
+
+            attempts++;
+
+            if (guess === targetNumber) {
+                found = true;
+                alert("Congratulations! You guessed the correct number.");
+                break;
+            }
+
+            else if (guess > targetNumber) {
+                alert("High number!");
+            }
+
+            else {
+                alert("Low number!");
+            }
+        }
+
+        if (!found && attempts >= maxAttempts) {
+            alert("Game Over! The correct number was 15.");
+        }
+
+        console.log("Attempts:", attempts);
+        console.log("Found:", found);
+    </script>
+
+</body>
+
+</html>
